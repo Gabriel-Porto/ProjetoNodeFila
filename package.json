@@ -1,0 +1,19 @@
+{
+  "name": "projetonodefila",
+  "version": "1.0.0",
+  "description": "Projeto Node para fila em site.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./src/server.js",
+    "dev": "nodemon ./src/server.js"
+  },
+  "keywords": [],
+  "author": "Gabriel Porto",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
