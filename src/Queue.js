@@ -1,15 +1,28 @@
 class Queue {
   constructor() {
-    this.q = []
+      this.items = []
+      this.frontIndex = 0
+      this.backIndex = 0
   }
   push(item) {
-    this.q.push(item)
+      this.items.push(item)
+      this.backIndex++
+      return item + ' inserido'
   }
   shift() {
-    return this.q.shift()
+      const item = this.items[this.frontIndex]
+      this.items.shift()
+      this.frontIndex++
+      return item + ' retirado '
   }
-  get() {
-    return this.q.length;
+  peek() {
+      return this.items[this.frontIndex]
+  }
+  get printQueue() {
+      return this.items;
+  }
+  get length() {
+    return this.items.length;
   }
 }
 

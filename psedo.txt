@@ -1,0 +1,12 @@
+receber id
+colocar na fila
+redirecionar para espera
+mostrar posição na fila para usuario
+
+
+
+
+muda posição
+
+mover tds para uma posição dps (fila)
+
