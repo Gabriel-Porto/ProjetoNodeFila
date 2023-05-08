@@ -18,6 +18,10 @@ class Queue {
   peek() {
     return this.items[this.frontIndex];
   }
+
+  emailAlreadyQueued(item) {
+    return this.items.some((email) => email === item);
+  }
   get printQueue() {
     return this.items;
   }

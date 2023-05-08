@@ -8,7 +8,7 @@ let filaClientes = new Queue();
 
 app.post("/signup", (req, res) => {
   const { email } = req.body;
-  const emailAlredyQueued = filaClientes.peek(email);
+  const emailAlredyQueued = filaClientes.emailAlreadyQueued(email);
   if (emailAlredyQueued) {
     return res.status(400).json({
       message: "Email already queued",
