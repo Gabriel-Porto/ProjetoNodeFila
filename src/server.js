@@ -6,24 +6,28 @@ const PORT = 3333
 const Queue = require("./Queue")
 let filaClientes = new Queue()
 
-app.post("/cadastro", (req, res) => {
+app.post("/signup", (req, res) => {
   const { email } = req.body
   res.json({ email })
   filaClientes.push(req.body.email)
   console.log(filaClientes.length)
 })
 
-app.get("/espera/:email", (req, res) => {
-  const { email } = req.params.email
+app.get("/queue", (req, res) => {
+  res.json({ Fila: filaClientes.printQueue })
+})
 
-  filaClientes.items.forEach(function (cliente, index) {
-    if (filaClientes.items[index] === email) {
-      return index
+app.get("/waitingroom/:email", (req, res) => {
+  const { email } = req.params
+  let pos
+
+  filaClientes.items.forEach(function (cliente, posAtual) {
+    if (filaClientes.items[posAtual] === email) {
+      pos = posAtual
     }
   })
 
-  console.log(filaClientes.printQueue)
-  res.send("user " + filaClientes.printQueue)
+  res.json({ posicao: pos + 1})
 })
 
 app.listen(PORT, () => console.log(`Server rodando na porta ${PORT}`))
